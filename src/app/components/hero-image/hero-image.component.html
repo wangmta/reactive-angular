@@ -1,0 +1,4 @@
+<ng-container *ngIf="path">
+  <img [src]="path + '/' + layout + '_' + size + '.' + extension" [ngClass]="{ loaded: loaded }"
+    (load)="loaded = true" />
+</ng-container>

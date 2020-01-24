@@ -1,0 +1,28 @@
+<div class="list-header">
+  <div>
+    Total Results: <span>{{ totalResults$ | async }}</span>
+  </div>
+  <div *ngIf="(page$ | async) !== undefined">
+    Page - <span>{{ (page$ | async) + 1 }} of {{ totalPages$ | async }}</span>&nbsp;&nbsp;&nbsp;
+    <span>
+      <!-- <button (click)="setPage(-1)" [disabled]="(page$ | async) < 1">Prev</button> -->
+      <button (click)="setPage(-1)" [disabled]="isFirstPage$ | async">Prev</button>
+      <button (click)="setPage(1)" [disabled]="isLastPage$ | async">Next</button>
+    </span>
+  </div>
+  <div>
+    Show {{ limit$ | async }} results
+    <span>
+      <!-- disable button when current limit is on -->
+      <button *ngFor="let limit of limits" (click)="doLimit(limit)"
+        [disabled]="limit === (limit$ | async)">{{ limit }}</button>
+    </span>
+  </div>
+  <div>Search: <input [ngModel]="search$ | async" (ngModelChange)="doSearch($event)" /></div>
+</div>
+<div class="list">
+  <a class="hero" *ngFor="let hero of (heroes$ | async)">
+    <div class="name" [title]="hero.name">{{ hero.name }}</div>
+    <app-hero-image [path]="hero.thumbnail.path" size="medium" layout="portrait"></app-hero-image>
+  </a>
+</div>
