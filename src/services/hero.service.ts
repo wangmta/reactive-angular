@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { environment } from '../environments/environment';
 import { map, switchMap, tap } from 'rxjs/operators';
 const HERO_API = 'https://gateway.marvel.com:443';
 const LIMIT_LOW = 10;

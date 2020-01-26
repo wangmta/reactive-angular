@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { HeroTableComponent } from './hero-table/hero-table.component';
+// import { HeroTableComponent } from '../hero-table/hero-table.component';
 import { Route, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { ComponentModule } from './components/component.module';
+import { ComponentModule } from '../components/component.module';
 
 const routes: Route[] = [
   // {
@@ -16,7 +16,7 @@ const routes: Route[] = [
   // lazy loading
   {
     path: '',
-    loadChildren: './hero-table/hero-table.module#HeroTableModule'
+    loadChildren: '../hero-table/hero-table.module#HeroTableModule'
   }
 ];
 

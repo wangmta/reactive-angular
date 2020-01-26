@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: 'Work-Sans';
+  src: url('./assets/fonts/WorkSans-Light.ttf');
+}
+
+html {
+  background-image: linear-gradient(45deg,
+      rgba(195, 207, 226, 0.699) 0%,
+      rgba(245, 247, 250, 0.699) 100%);
+}
+
+div {
+  font-family: 'Work-Sans'
+}

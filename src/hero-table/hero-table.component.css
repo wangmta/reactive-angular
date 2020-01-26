@@ -1,0 +1,16 @@
+.list-header {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.hero {
+  width: 20%;
+  margin-bottom: 20px;
+}
