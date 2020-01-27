@@ -1,7 +1,16 @@
 .list-header {
   margin-bottom: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+}
+
+.list-header>div {
+  margin-right: 30px;
+}
+
+input {
+  border-radius: 5px;
+  width: 300px;
 }
 
 .list {
@@ -13,4 +22,8 @@
 .hero {
   width: 20%;
   margin-bottom: 20px;
+}
+
+.load-data>button {
+  width: 300px;
 }

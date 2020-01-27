@@ -11,7 +11,8 @@ import { combineLatest } from 'rxjs';
 export class HeroTableComponent {
   constructor(private heroService: HeroService) {}
 
-  heroes$ = this.heroService.heroes$;
+  heroes$;
+  // heroes$ = this.heroService.heroes$;
   search$ = this.heroService.search$;
   page$ = this.heroService.page$;
   // userPage = this.page$.pipe(map(page => page + 1)); // this is not a good solution since it double subscribes
@@ -37,5 +38,9 @@ export class HeroTableComponent {
 
   setPage(num) {
     this.heroService.setPageBy(num);
+  }
+
+  loadData() {
+    this.heroes$ = this.heroService.heroes$;
   }
 }
