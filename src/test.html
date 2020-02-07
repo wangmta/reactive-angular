@@ -1,0 +1,68 @@
+<ng-container *ngIf="lessons">
+  <div class="lesson" *ngFor="let lesson of lessons">
+    <div class="lesson-detail">
+      {{lesson | json}}
+    </div>
+  </div>
+</ng-container>
+
+
+<div class="lessons-list" *ngIf="lessons else loading">
+  ...
+</div>
+
+
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>
+
+
+
+
+<div class="custom-card-padding">
+  <h3>Weekly Price Change Labels ({{today}}, Total: {{ totalLabels? totalLabels : "--"}})
+    <ng-content select="[download-icon]"></ng-content>
+  </h3>
+  <ng-content select="[refresh-body]"></ng-content>
+</div>
+
+
+<weekly-label class="width-100" [today]="today" [totalLabels]="totalLabels" [tableData]="priceChangeRows"
+  [tableDataCopy]="priceChangeRowsCopy" [tableKeys]="priceChangeKeys" [tableLabels]="priceChangeLabels">
+  <ion-icon download-icon tappable class="hover-text" name="ios-download-outline"
+    (click)="exportCSV('WeeklyPriceChange', priceChangeRows)"></ion-icon>
+  <refresh refresh-body [dataInput]="priceChangeRows" (refreshCall)="getPriceChangeByChain()">
+  </refresh>
+</weekly-label>
+
+
+<div class="event-card">
+  <div class="row">
+    <event-thumbnail class="col-md-6" #thumbnail *ngFor="let event of events" [event]="event">
+    </event-thumbnail>
+  </div>
+  <!-- thumbnail is an instance of EventThumbnailComponent class -->
+  <h3>{{thumbnail.templateVar.value}}</h3>
+  <h3>{{thumbnail.templateVar.scope}}</h3>
+  <h4>{{thumbnail.templateVarFunc()}}</h4>
+</div>
+
+
+<div *ngIf="condition; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>Content to render when condition is true.</ng-template>
+<ng-template #elseBlock>Content to render when condition is false.</ng-template>
+
+
+<div class="box-1">
+  <ng-content select="what"></ng-content>
+</div>
+
+<div class="box-1">
+  <what></what>
+</div>
+
+<ng-content select="[what]"></ng-content>
+
+<div class="box-1">
+  <div what></div>
+</div>
